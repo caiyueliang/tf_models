@@ -17,9 +17,10 @@ python object_detection/dataset_tools/create_pascal_tf_record.py \
     --data_dir=/home/lijc08/deeplearning/Data/VOCtrainval_11-May-2012/VOCdevkit --year=VOC2012 --set=val \
     --output_path=pascal_val.record
 
+生成两个文件：pascal_train.record，pascal_val.record；
+标签文件：object_detection/data/pascal_label_map.pbtxt；
 
-
-
+=========================================================================================================================================
 
 
 
