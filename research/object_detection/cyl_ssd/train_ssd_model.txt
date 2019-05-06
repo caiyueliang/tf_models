@@ -1,3 +1,35 @@
+=========================================================================================================================================
+1.Tensorflow及Object detection API相关环境的搭建安装
+https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md
+
+=========================================================================================================================================
+2.准备输入数据，数据转换为tfrecord格式：（需要改--data_dir路径，参考代码object_detection/dataset_tools/create_pascal_tf_record.py）
+wget http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar
+tar -xvf VOCtrainval_11-May-2012.tar
+
+python object_detection/dataset_tools/create_pascal_tf_record.py \
+    --label_map_path=object_detection/data/pascal_label_map.pbtxt \
+    --data_dir=/home/lijc08/deeplearning/Data/VOCtrainval_11-May-2012/VOCdevkit --year=VOC2012 --set=train \
+    --output_path=pascal_train.record
+
+python object_detection/dataset_tools/create_pascal_tf_record.py \
+    --label_map_path=object_detection/data/pascal_label_map.pbtxt \
+    --data_dir=/home/lijc08/deeplearning/Data/VOCtrainval_11-May-2012/VOCdevkit --year=VOC2012 --set=val \
+    --output_path=pascal_val.record
+
+
+
+
+
+
+
+
+
+
+
+=========================================================================================================================================
+=========================================================================================================================================
+=========================================================================================================================================
 1.https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md
 Tensorflow及Object detection API相关环境的搭建安装
 
@@ -34,8 +66,6 @@ bazel run -c opt tensorflow/contrib/lite/toco:toco -- \
 --std_values=128 \
 --change_concat_input_ranges=false \
 --allow_custom_ops
-
-=========================================================================================================================================
 
 
 
