@@ -48,7 +48,16 @@ python object_detection/model_main.py \
     --sample_1_of_n_eval_examples=$SAMPLE_1_OF_N_EVAL_EXAMPLES \
     --alsologtostderr
 
+=========================================================================================================================================
+可视化
+tensorboard --logdir="/home/lijc08/deeplearning/tf_models/research/object_detection/cyl_ssd/checkpoints/"
 
+=========================================================================================================================================
+训练代码：research/object_detection/legacy/train.py
+python train.py \
+        --logtostderr \
+        --train_dir=/home/kai/tensorflow/face/ \
+        --pipeline_config_path=/home/kai/tensorflow/face/ssd_mobilenet_v1_0.75_depth_quantized_300x300_pets_sync.config
 
 
 
