@@ -236,6 +236,7 @@ def static_or_dynamic_map_fn(fn, elems, dtype=None,
       return tf.map_fn(fn, elems, dtype, parallel_iterations, back_prop)
     outputs = [fn(arg) for arg in tf.unstack(elems)]
   # Stack `outputs`, which is a list of Tensors or list of lists of Tensors
+  print('[static_or_dynamic_map_fn] outputs', outputs)
   if all([isinstance(output, tf.Tensor) for output in outputs]):
     return tf.stack(outputs)
   else:
