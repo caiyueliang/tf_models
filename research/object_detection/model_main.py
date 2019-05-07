@@ -61,6 +61,7 @@ def main(unused_argv):
   flags.mark_flag_as_required('pipeline_config_path')
   config = tf.estimator.RunConfig(model_dir=FLAGS.model_dir)
 
+  # train_and_eval_dict：是estimator，train_input_fn，eval_input_fns的来源
   train_and_eval_dict = model_lib.create_estimator_and_inputs(
       run_config=config,
       hparams=model_hparams.create_hparams(FLAGS.hparams_overrides),
@@ -93,6 +94,7 @@ def main(unused_argv):
       model_lib.continuous_eval(estimator, FLAGS.checkpoint_dir, input_fn,
                                 train_steps, name)
   else:
+    # 进入这个分支
     train_spec, eval_specs = model_lib.create_train_and_eval_specs(
         train_input_fn,
         eval_input_fns,
@@ -102,6 +104,10 @@ def main(unused_argv):
         eval_on_train_data=False)
 
     # Currently only a single Eval Spec is allowed.
+    # print('[[[[[[[[[[[[[train_input_fn]]]]]]]]]]]]]]', train_input_fn)
+    # print('[[[[[[[[[[[[[estimator]]]]]]]]]]]]]]', estimator)
+    # print('[[[[[[[[[[[[[train_spec]]]]]]]]]]]]]]', train_spec)
+    # print('[[[[[[[[[[[[[eval_specs]]]]]]]]]]]]]]', eval_specs[0])
     tf.estimator.train_and_evaluate(estimator, train_spec, eval_specs[0])
 
 

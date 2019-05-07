@@ -219,6 +219,10 @@ def create_model_fn(detection_model_fn, configs, hparams, use_tpu=False,
       An `EstimatorSpec` that encapsulates the model and its serving
         configurations.
     """
+    print('[model_lib][model_fn] features', features)
+    print('[model_lib][model_fn] labels', labels)
+    print('[model_lib][model_fn] filename', features[fields.InputDataFields.filename])
+
     params = params or {}
     total_loss, train_op, detections, export_outputs = None, None, None, None
     is_training = mode == tf.estimator.ModeKeys.TRAIN
