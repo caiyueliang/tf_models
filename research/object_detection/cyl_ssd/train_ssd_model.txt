@@ -54,10 +54,10 @@ tensorboard --logdir="/home/lijc08/deeplearning/tf_models/research/object_detect
 
 =========================================================================================================================================
 训练代码：research/object_detection/legacy/train.py
-python train.py \
+python object_detection/legacy/train.py \
         --logtostderr \
-        --train_dir=/home/kai/tensorflow/face/ \
-        --pipeline_config_path=/home/kai/tensorflow/face/ssd_mobilenet_v1_0.75_depth_quantized_300x300_pets_sync.config
+        --train_dir="/home/lijc08/deeplearning/tf_models/research/object_detection/cyl_ssd/checkpoints_1/" \
+        --pipeline_config_path="/home/lijc08/deeplearning/tf_models/research/object_detection/cyl_ssd/ssd_mobilenet_v1_quantized_wider.config"
 
 
 
