@@ -219,9 +219,11 @@ def create_model_fn(detection_model_fn, configs, hparams, use_tpu=False,
       An `EstimatorSpec` that encapsulates the model and its serving
         configurations.
     """
+    # TODO
     print('[model_lib][model_fn] features', features)
     print('[model_lib][model_fn] labels', labels)
-    print('[model_lib][model_fn] filename', features[fields.InputDataFields.filename])
+    print('[model_lib][model_fn] images', features[fields.InputDataFields.image], )
+    print('[model_lib][model_fn] filename', features[fields.InputDataFields.filename], type(features[fields.InputDataFields.filename]))
 
     params = params or {}
     total_loss, train_op, detections, export_outputs = None, None, None, None

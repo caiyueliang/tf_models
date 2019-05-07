@@ -415,7 +415,10 @@ def _get_features_dict(input_dict):
       fields.InputDataFields.true_image_shape:
           input_dict[fields.InputDataFields.true_image_shape],
       fields.InputDataFields.original_image_spatial_shape:
-          input_dict[fields.InputDataFields.original_image_spatial_shape]
+          input_dict[fields.InputDataFields.original_image_spatial_shape],
+      # TODO
+      fields.InputDataFields.filename:
+          input_dict[fields.InputDataFields.filename]
   }
   if fields.InputDataFields.original_image in input_dict:
     features[fields.InputDataFields.original_image] = input_dict[
@@ -491,6 +494,8 @@ def create_train_input_fn(train_config, train_input_config,
 
     def transform_and_pad_input_data_fn(tensor_dict):
       """Combines transform and pad operation."""
+      # TODO
+      # print('[transform_and_pad_input_data_fn] tensor_dict', tensor_dict)
       data_augmentation_options = [
           preprocessor_builder.build(step)
           for step in train_config.data_augmentation_options
@@ -523,6 +528,8 @@ def create_train_input_fn(train_config, train_input_config,
         train_input_config,
         transform_input_data_fn=transform_and_pad_input_data_fn,
         batch_size=params['batch_size'] if params else train_config.batch_size)
+    # TODO
+    print('[transform_and_pad_input_data_fn] dataset', dataset)
     return dataset
 
   return _train_input_fn
