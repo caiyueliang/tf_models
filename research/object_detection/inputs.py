@@ -415,10 +415,7 @@ def _get_features_dict(input_dict):
       fields.InputDataFields.true_image_shape:
           input_dict[fields.InputDataFields.true_image_shape],
       fields.InputDataFields.original_image_spatial_shape:
-          input_dict[fields.InputDataFields.original_image_spatial_shape],
-      # TODO
-      fields.InputDataFields.filename:
-          input_dict[fields.InputDataFields.filename]
+          input_dict[fields.InputDataFields.original_image_spatial_shape]
   }
   if fields.InputDataFields.original_image in input_dict:
     features[fields.InputDataFields.original_image] = input_dict[
