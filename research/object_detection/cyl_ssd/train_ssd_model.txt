@@ -27,7 +27,7 @@ python object_detection/dataset_tools/create_pascal_tf_record.py \
 4.开始训练
 PIPELINE_CONFIG_PATH="/home/lijc08/deeplearning/tf_models/research/object_detection/cyl_ssd/ssd_mobilenet_v1_quantized_pascal.config"
 MODEL_DIR="/home/lijc08/deeplearning/tf_models/research/object_detection/cyl_ssd/checkpoints/"
-NUM_TRAIN_STEPS=50000
+NUM_TRAIN_STEPS=200000
 SAMPLE_1_OF_N_EVAL_EXAMPLES=1
 python object_detection/model_main.py \
     --pipeline_config_path=${PIPELINE_CONFIG_PATH} \
@@ -50,7 +50,7 @@ python object_detection/model_main.py \
 
 PIPELINE_CONFIG_PATH="./object_detection/cyl_ssd/ssd_mobilenet_v1_quantized_wider.config"
 MODEL_DIR="./object_detection/cyl_ssd/checkpoints/"
-NUM_TRAIN_STEPS=50000
+NUM_TRAIN_STEPS=200000
 SAMPLE_1_OF_N_EVAL_EXAMPLES=1
 python object_detection/model_main.py \
     --pipeline_config_path=${PIPELINE_CONFIG_PATH} \
