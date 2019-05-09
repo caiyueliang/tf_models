@@ -48,6 +48,17 @@ python object_detection/model_main.py \
     --sample_1_of_n_eval_examples=$SAMPLE_1_OF_N_EVAL_EXAMPLES \
     --alsologtostderr
 
+PIPELINE_CONFIG_PATH="./object_detection/cyl_ssd/ssd_mobilenet_v1_quantized_wider.config"
+MODEL_DIR="./object_detection/cyl_ssd/checkpoints/"
+NUM_TRAIN_STEPS=50000
+SAMPLE_1_OF_N_EVAL_EXAMPLES=1
+python object_detection/model_main.py \
+    --pipeline_config_path=${PIPELINE_CONFIG_PATH} \
+    --model_dir=${MODEL_DIR} \
+    --num_train_steps=${NUM_TRAIN_STEPS} \
+    --sample_1_of_n_eval_examples=$SAMPLE_1_OF_N_EVAL_EXAMPLES \
+    --alsologtostderr
+
 =========================================================================================================================================
 可视化
 tensorboard --logdir="/home/lijc08/deeplearning/tf_models/research/object_detection/cyl_ssd/checkpoints/"
