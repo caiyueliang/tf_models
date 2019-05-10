@@ -72,15 +72,17 @@ python object_detection/model_main.py \
 
 =========================================================================================================================================
 可视化
-tensorboard --logdir="/home/lijc08/deeplearning/tf_models/research/object_detection/cyl_ssd/checkpoints/"
+tensorboard --logdir="/home/lijc08/deeplearning/tf_models/research/object_detection/cyl_ssd/ssd_v1_checkpoints/"
+tensorboard --logdir="/home/lijc08/deeplearning/tf_models/research/object_detection/cyl_ssd/ssd_v2_checkpoints/"
+
 
 =========================================================================================================================================
-训练代码：research/object_detection/legacy/train.py
-python object_detection/legacy/train.py \
-        --logtostderr \
-        --train_dir="/home/lijc08/deeplearning/tf_models/research/object_detection/cyl_ssd/checkpoints_1/" \
-        --pipeline_config_path="/home/lijc08/deeplearning/tf_models/research/object_detection/cyl_ssd/ssd_mobilenet_v1_quantized_wider.config"
-
+转换
+python object_detection/export_tflite_ssd_graph.py \
+--pipeline_config_path="./object_detection/cyl_ssd/ssd_mobilenet_v2_quantized_wider.config" \
+--trained_checkpoint_prefix="./object_detection/cyl_ssd/ssd_v2_checkpoints/model.ckpt-37977" \
+--output_directory="/tmp/tflite" \
+--add_postprocessing_op=true
 
 
 
